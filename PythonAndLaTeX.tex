@@ -8,6 +8,56 @@
 \usepackage{csquotes}
 \usepackage{xcolor}
 \usepackage{listings}
+\usepackage{mdframed}
+
+\definecolor{hellgelb}{rgb}{1,1,0.8}
+\definecolor{lightgelb}{rgb}{1,1,0.8}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+
+
+\usepackage[]{textcomp}
+\lstset{%
+    float=hbp,%
+    basicstyle=\ttfamily\footnotesize, %
+    identifierstyle=\color{colIdentifier}, %
+    keywordstyle=\color{colKeys}, %
+    stringstyle=\color{colString}, %
+    commentstyle=\color{colComments}, %
+    alsoletter={\_},
+	language= {Python},%
+    columns=flexible, %
+    tabsize=2, %
+    morekeywords={read_csv,to_datetime,merge,to_excel,join,concat,pairplot,vq,kmeans,savefig,Series,axis,DataFrame,index,to_frame,loc,iloc,idx,mean,describe,std,count,},%
+    frame=single, %
+    extendedchars=true, %
+    showspaces=false, %
+    showstringspaces=false, %
+    numbers=left, %
+    numberstyle=\tiny, %
+    upquote=true,
+    breaklines=true, %
+    backgroundcolor=\color{yellow!15}, %
+    breakautoindent=true, %
+    captionpos=b%
+}
+
+
+\lstset{literate=%
+    {Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ü}{{\"u}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+    {~}{{\textasciitilde}}1
+}
+
+\newcommand{\pyc}[1]{\lstinline[language={Python}]{#1}}
+
 
 \author{Dr. Uwe Ziegenhagen}
 \title{Python \& \LaTeX}
@@ -60,10 +110,6 @@
 
 \begin{itemize}
 	\item Funktionieren die folgenden Befehle?
-\begin{description}
-		\item[Ja] Gut
-		\item[Nein] Schlecht
-	\end{description}
 \end{itemize}
 
 \begin{lstlisting}
@@ -73,15 +119,128 @@ import numpy
 \end{lstlisting}
 \end{frame}
 
+\section{Python Grundlagen}
+
+\begin{frame}
+\frametitle{Python}
+\framesubtitle{~}
+
+\begin{itemize}
+	\item Erfunden von Guido van Rossum (Niederlande)
+	\item Fokus auf lesbaren und verständlichen Code
+	\item \enquote{batteries included} $\Rightarrow$ umfangreiche Standardbibliothek
+	\item Mein erster Kontakt mit Python: Downloadskript  für SaveTV
+	\item Python2 versus Python3 $\Rightarrow$ Python3
+	\item Editor? Ich nutze Spyder3
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python \enquote{Hello World}}
+
+\begin{lstlisting}[language={Python},caption={Hello World in Python 3.x}]
+print('Hello Python')
+# Kommentar
+a = 123.4
+a+=2
+print(a+2)
+
+def myFunction(a):
+    b = a + a
+    return b
+    
+print(myFunction(2)) # 4
+print(myFunction('a')) # 'aa'
+\end{lstlisting}
+
+\end{frame}
 
 
+\begin{frame}[fragile]
+\frametitle{Strings, Listen und Tupel}
+\framesubtitle{Strings}
+
+\begin{lstlisting}[language={Python},caption={Strings}]
+a = 'Hallo'
+b = 'Welt'
+
+c = a + ' ' + b
+'W' in c # True
+print(c[0]) # 'H'
+print(c[-1]) # 't'
+print(c[1:3]) # 'all'
+
+for i in c:
+	print(i)
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Strings, Listen und Tupel}
+\framesubtitle{Stringfunktionen}
+
+\begin{lstlisting}[language={Python},caption={Strings}]
+meinString = 'Hallo Welt'
+
+meinString.upper()
+meinString.find('Welt')
+meinString.split(' ')
+meinString.replace('Welt', 'World')
+\end{lstlisting}
+\end{frame}
 
 
+\begin{frame}[fragile]
+\frametitle{Strings, Listen und Tupel}
+\framesubtitle{Listen}
+
+\begin{lstlisting}[language={Python},caption={Listen}]
+beatles = ['John', 'Paul', 'Ringo', 'George']
+print(len(beatles))
+beatles[0]
+beatles.append('')
+beatles.index('John')
+\end{lstlisting}
+\end{frame}
 
 
+\begin{frame}[fragile]
+\frametitle{Strings, Listen und Tupel}
+\framesubtitle{Stringfunktionen}
+
+\begin{lstlisting}[language={Python},caption={Strings}]
+meinString = 'Hallo Welt'
+
+meinString.upper()
+meinString.find('Welt')
+meinString.split(' ')
+meinString.replace('Welt', 'World')
+\end{lstlisting}
+\end{frame}
 
 
+\begin{frame}[fragile]
+\frametitle{Strings, Listen und Tupel}
+\framesubtitle{Tupel}
 
+\begin{lstlisting}[language={Python},caption={Tupel}]
+monate=('Jan', 'Feb', 'Mar', 'Apr', 'Mai')
+monate[1]
+monate[1:3]
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Dictionaries}
+\framesubtitle{Key-Value Paare}
+
+\begin{lstlisting}[language={Python},caption={Dictionaries}]
+lookup={'EUR':'Euro', 'GBP':'Pound', 'USD':'US-Dollar'}
+lookup['EUR']
+\end{lstlisting}
+\end{frame}
 
 
 
