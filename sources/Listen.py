@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Feb 26 20:28:18 2017
+
+@author: Uwe
+"""
+
+beatles = ['John', 'Paul', 'Ringo', 'George']
+print(len(beatles))
+beatles[0]
+beatles.append('')
+beatles.index('John')
