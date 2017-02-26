@@ -242,6 +242,125 @@ lookup['EUR']
 \end{lstlisting}
 \end{frame}
 
+\section{Programmfluss}
+
+\begin{frame}[fragile]
+\frametitle{Flusssteuerung}
+\framesubtitle{if/then}
+
+\begin{lstlisting}[language={Python},caption={if-then}]
+if condition:
+	DoThis()
+else:
+	pass # pass = "Do nothing"
+\end{lstlisting}
+
+"condition" kann ein üblicher Boolean Ausdruck sein.
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Flusssteuerung}
+\framesubtitle{for}
+
+\begin{lstlisting}[language={Python},caption={for}]
+myString = 'Python'
+for c in myString:
+	print(c)
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Flusssteuerung}
+\framesubtitle{while}
+
+\begin{lstlisting}[language={Python},caption={while}]
+n = 4
+while n>0:
+	print(n)
+	n-=1
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Flusssteuerung}
+\framesubtitle{break \& continue}
+
+\begin{lstlisting}[language={Python},caption={break \& continue}]
+
+\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Funktionen}
+\framesubtitle{~}
+
+\begin{lstlisting}[language={Python},caption={Definition von Funktionen}]
+def add(a,b):
+	return a+b
+	
+def multiply3(a,b,c=1):
+	return a*b*c
+	
+\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Ein- und Ausgabe}
+\framesubtitle{Kommandozeile}
+
+\begin{lstlisting}[language={Python},caption={Ein- und Ausgabe: Kommandozeile}]
+a = input('Erstes Wort')
+b = input('Zweites Wort')
+
+print(a, b)
+print(a, b, sep='')
+print(a, b, sep=':')
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Ein- und Ausgabe}
+\framesubtitle{Dateien lesen}
+
+\begin{lstlisting}[language={Python},caption={Ein- und Ausgabe: Dateien}]
+dateiname = 'datei.txt'
+
+filepointer = open(dateiname,'w') 
+# 'r' (read) oder 'a' (append)
+for zeile in filepointer:
+        print(line)
+
+filepointer.close()
+\end{lstlisting}
+
+\begin{itemize}
+	\item Um Excel, CSV und ähnliches zu lesen $\Rightarrow$ pandas
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Ein- und Ausgabe}
+\framesubtitle{UTF8-Dateien schreiben}
+
+\begin{lstlisting}[language={Python},caption={Ein- und Ausgabe: UTF8 Dateien}]
+import io
+with io.open(filename,'r',encoding='utf8') as f:
+    text = f.read()
+
+with io.open(filename,'w',encoding='utf8') as f:
+    f.write(text)
+\end{lstlisting}
+\end{frame}
+
+
 
 
 \end{document}
