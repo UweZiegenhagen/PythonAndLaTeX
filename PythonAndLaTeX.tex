@@ -139,20 +139,7 @@ import numpy
 \begin{frame}[fragile]
 \frametitle{Python \enquote{Hello World}}
 
-\begin{lstlisting}[language={Python},caption={Hello World in Python 3.x}]
-print('Hello Python')
-# Kommentar
-a = 123.4
-a+=2
-print(a+2)
-
-def myFunction(a):
-    b = a + a
-    return b
-    
-print(myFunction(2)) # 4
-print(myFunction('a')) # 'aa'
-\end{lstlisting}
+\lstinputlisting[firstline=7,caption={Hello World in Python 3.x}]{sources/helloWorld.py}
 
 \end{frame}
 
@@ -161,34 +148,15 @@ print(myFunction('a')) # 'aa'
 \frametitle{Strings, Listen und Tupel}
 \framesubtitle{Strings}
 
-\begin{lstlisting}[language={Python},caption={Strings}]
-a = 'Hallo'
-b = 'Welt'
+\lstinputlisting[firstline=7,caption={Strings}]{sources/Strings.py}
 
-c = a + ' ' + b
-'W' in c # True
-print(c[0]) # 'H'
-print(c[-1]) # 't'
-print(c[1:3]) # 'all'
-
-for i in c:
-	print(i)
-
-\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Strings, Listen und Tupel}
 \framesubtitle{Stringfunktionen}
 
-\begin{lstlisting}[language={Python},caption={Strings}]
-meinString = 'Hallo Welt'
-
-meinString.upper()
-meinString.find('Welt')
-meinString.split(' ')
-meinString.replace('Welt', 'World')
-\end{lstlisting}
+\lstinputlisting[firstline=7,caption={Strings}]{sources/Strings2.py}
 \end{frame}
 
 
@@ -196,28 +164,8 @@ meinString.replace('Welt', 'World')
 \frametitle{Strings, Listen und Tupel}
 \framesubtitle{Listen}
 
-\begin{lstlisting}[language={Python},caption={Listen}]
-beatles = ['John', 'Paul', 'Ringo', 'George']
-print(len(beatles))
-beatles[0]
-beatles.append('')
-beatles.index('John')
-\end{lstlisting}
-\end{frame}
+\lstinputlisting[firstline=7,caption={Listen}]{sources/Listen.py}
 
-
-\begin{frame}[fragile]
-\frametitle{Strings, Listen und Tupel}
-\framesubtitle{Stringfunktionen}
-
-\begin{lstlisting}[language={Python},caption={Strings}]
-meinString = 'Hallo Welt'
-
-meinString.upper()
-meinString.find('Welt')
-meinString.split(' ')
-meinString.replace('Welt', 'World')
-\end{lstlisting}
 \end{frame}
 
 
@@ -225,11 +173,7 @@ meinString.replace('Welt', 'World')
 \frametitle{Strings, Listen und Tupel}
 \framesubtitle{Tupel}
 
-\begin{lstlisting}[language={Python},caption={Tupel}]
-monate=('Jan', 'Feb', 'Mar', 'Apr', 'Mai')
-monate[1]
-monate[1:3]
-\end{lstlisting}
+\lstinputlisting[firstline=7,caption={Tupel}]{sources/Tupel.py}
 \end{frame}
 
 
@@ -237,10 +181,7 @@ monate[1:3]
 \frametitle{Dictionaries}
 \framesubtitle{Key-Value Paare}
 
-\begin{lstlisting}[language={Python},caption={Dictionaries}]
-lookup={'EUR':'Euro', 'GBP':'Pound', 'USD':'US-Dollar'}
-lookup['EUR']
-\end{lstlisting}
+\lstinputlisting[firstline=7,caption={Tupel}]{sources/Dictionaries.py}
 \end{frame}
 
 \section{Programmfluss}
@@ -249,12 +190,7 @@ lookup['EUR']
 \frametitle{Flusssteuerung}
 \framesubtitle{if/then}
 
-\begin{lstlisting}[language={Python},caption={if-then}]
-if condition:
-	DoThis()
-else:
-	pass # pass = "Do nothing"
-\end{lstlisting}
+\lstinputlisting[firstline=7,caption={if-then}]{sources/ifthen.py}
 
 "condition" kann ein üblicher Boolean Ausdruck sein.
 
@@ -264,11 +200,7 @@ else:
 \frametitle{Flusssteuerung}
 \framesubtitle{for}
 
-\begin{lstlisting}[language={Python},caption={for}]
-myString = 'Python'
-for c in myString:
-	print(c)
-\end{lstlisting}
+\lstinputlisting[firstline=7,caption={for-Schleifen}]{sources/for.py}
 
 \end{frame}
 
@@ -276,12 +208,7 @@ for c in myString:
 \frametitle{Flusssteuerung}
 \framesubtitle{while}
 
-\begin{lstlisting}[language={Python},caption={while}]
-n = 4
-while n>0:
-	print(n)
-	n-=1
-\end{lstlisting}
+\lstinputlisting[firstline=7,caption={while-Schleifen}]{sources/while.py}
 
 \end{frame}
 
@@ -289,9 +216,7 @@ while n>0:
 \frametitle{Flusssteuerung}
 \framesubtitle{break \& continue}
 
-\begin{lstlisting}[language={Python},caption={break \& continue}]
-
-\end{lstlisting}
+\lstinputlisting[firstline=7,caption={break \& continue}]{sources/breakContinue.py}
 
 \end{frame}
 
@@ -300,14 +225,7 @@ while n>0:
 \frametitle{Funktionen}
 \framesubtitle{~}
 
-\begin{lstlisting}[language={Python},caption={Definition von Funktionen}]
-def add(a,b):
-	return a+b
-	
-def multiply3(a,b,c=1):
-	return a*b*c
-	
-\end{lstlisting}
+\lstinputlisting[firstline=7,caption={Definition von Funktionen}]{sources/Funktionen.py}
 
 \end{frame}
 
@@ -316,14 +234,8 @@ def multiply3(a,b,c=1):
 \frametitle{Ein- und Ausgabe}
 \framesubtitle{Kommandozeile}
 
-\begin{lstlisting}[language={Python},caption={Ein- und Ausgabe: Kommandozeile}]
-a = input('Erstes Wort')
-b = input('Zweites Wort')
+\lstinputlisting[firstline=7,caption={Ein- und Ausgabe: Kommandozeile}]{sources/io.py}
 
-print(a, b)
-print(a, b, sep='')
-print(a, b, sep=':')
-\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -342,7 +254,7 @@ print(a, b, sep=':')
 \frametitle{Ein- und Ausgabe}
 \framesubtitle{UTF8-Dateien lesen und schreiben}
 
-\lstinputlisting[firstline=7]{sources/readWriteUTF8.py} 
+\lstinputlisting[firstline=7,,caption={Ein- und Ausgabe: UTF8}]{sources/readWriteUTF8.py} 
 
 \end{frame}
 
