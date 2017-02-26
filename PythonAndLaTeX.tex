@@ -1,0 +1,88 @@
+\documentclass[12pt,ngerman]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{babel}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{xcolor}
+\usepackage{listings}
+
+\author{Dr. Uwe Ziegenhagen}
+\title{Python \& \LaTeX}
+\subtitle{Dante e.V. Frühjahrstagung 2017}
+\date{22. März 2017}
+
+\begin{document}
+
+\begin{frame}
+
+\maketitle
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Überblick}
+\framesubtitle{Was machen wir heute?}
+
+\begin{itemize}
+\item Python Grundlagen
+\item Python in \LaTeX\ Dokumenten
+\item Erzeugung von \LaTeX\ Dokumenten
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Voraussetzungen}
+\framesubtitle{Was wird benötigt}
+
+\begin{itemize}
+\item Aktuelle \TeX\ Installation
+\item Python3 Installation, vorzugsweise Anaconda/Winpython
+\item Pakete:
+\begin{itemize}
+	\item numpy
+	\item jinja2
+	\item pandas
+\end{itemize}
+\item Diese Folien und Code-Beispiele unter: 
+\end{itemize}
+
+\url{https://github.com/UweZiegenhagen/PythonAndLaTeX}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{Testen der Installation}
+
+\begin{itemize}
+	\item Funktionieren die folgenden Befehle?
+\begin{description}
+		\item[Ja] Gut
+		\item[Nein] Schlecht
+	\end{description}
+\end{itemize}
+
+\begin{lstlisting}
+import jinja2
+import pandas
+import numpy
+\end{lstlisting}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
