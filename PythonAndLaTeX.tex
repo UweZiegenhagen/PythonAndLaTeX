@@ -20,6 +20,7 @@
 
 \usepackage[]{textcomp}
 \lstset{%
+	language=Python,%	
     float=hbp,%
     basicstyle=\ttfamily\footnotesize, %
     identifierstyle=\color{colIdentifier}, %
@@ -329,16 +330,7 @@ print(a, b, sep=':')
 \frametitle{Ein- und Ausgabe}
 \framesubtitle{Dateien lesen}
 
-\begin{lstlisting}[language={Python},caption={Ein- und Ausgabe: Dateien}]
-dateiname = 'datei.txt'
-
-filepointer = open(dateiname,'w') 
-# 'r' (read) oder 'a' (append)
-for zeile in filepointer:
-        print(line)
-
-filepointer.close()
-\end{lstlisting}
+\lstinputlisting[firstline=7,caption={Ein- und Ausgabe: Dateien}]{sources/readWriteFile.py} 
 
 \begin{itemize}
 	\item Um Excel, CSV und ähnliches zu lesen $\Rightarrow$ pandas
@@ -348,18 +340,11 @@ filepointer.close()
 
 \begin{frame}[fragile]
 \frametitle{Ein- und Ausgabe}
-\framesubtitle{UTF8-Dateien schreiben}
+\framesubtitle{UTF8-Dateien lesen und schreiben}
 
-\begin{lstlisting}[language={Python},caption={Ein- und Ausgabe: UTF8 Dateien}]
-import io
-with io.open(filename,'r',encoding='utf8') as f:
-    text = f.read()
+\lstinputlisting[firstline=7]{sources/readWriteUTF8.py} 
 
-with io.open(filename,'w',encoding='utf8') as f:
-    f.write(text)
-\end{lstlisting}
 \end{frame}
-
 
 
 
