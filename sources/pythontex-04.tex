@@ -1,0 +1,27 @@
+%!TEX TS-program = Arara
+% arara: pdflatex
+% arara: pythontex
+% arara: pdflatex
+\documentclass[12pt]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage[svgnames]{xcolor}
+\usepackage{url}
+\urlstyle{same}
+
+\usepackage[makestderr]{pythontex}
+
+\begin{document}
+
+\begin{pygments}{pycon}
+>>> âæéöø = 123
+>>> ßçñðŠ = 456
+>>> âæéöø + ßçñðŠ
+579
+\end{pygments}
+
+
+\end{document}

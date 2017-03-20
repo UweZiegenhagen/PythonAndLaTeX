@@ -1,0 +1,24 @@
+%!TEX TS-program = Arara
+% arara: pdflatex
+% arara: pythontex
+% arara: pdflatex
+\documentclass[12pt]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage[svgnames]{xcolor}
+\usepackage{url}
+\urlstyle{same}
+
+\usepackage[makestderr]{pythontex}
+
+\begin{document}
+
+We don't have to typeset the code we're executing.  It can be hidden.\pyc{mystring=r'\textbf{This is a message from Python}'} And then we can access it later:  \py{mystring}.
+
+It is also possible to perform variable substitution or string interpolation.  The earlier result could be recreated:  \pys{$1 + 1 = !{1+1}$}.
+
+
+\end{document}

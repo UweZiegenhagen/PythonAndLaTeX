@@ -1,0 +1,32 @@
+%!TEX TS-program = Arara
+% arara: pdflatex
+% arara: pythontex
+% arara: pdflatex
+\documentclass[12pt]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage[svgnames]{xcolor}
+\usepackage{url}
+\urlstyle{same}
+
+\usepackage[makestderr]{pythontex}
+
+\begin{document}
+
+\begin{pyconsole}[][frame=single]
+x = 123
+y = 345
+z = x + y
+z
+def f(expr):
+    return(expr**4)
+
+f(x)
+print('Python says hi from the console!')
+\end{pyconsole}
+
+
+\end{document}
