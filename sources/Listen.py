@@ -7,6 +7,6 @@ Created on Sun Feb 26 20:28:18 2017
 
 beatles = ['John', 'Paul', 'Ringo', 'George']
 print(len(beatles))
-beatles[0]
-beatles.append('')
-beatles.index('John')
+print(beatles[3])
+beatles.append('Yoko Ono')
+print(beatles.index('John'))
