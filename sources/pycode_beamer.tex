@@ -1,4 +1,4 @@
-\documentclass[12pt]{scrartcl}
+\documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{xcolor}
@@ -34,23 +34,29 @@
  \toks0{\immediate\write18}%
  \expandafter\toks\expandafter1\expandafter{\r@ncmd}%
  \edef\d@r@ncmd{\the\toks0{\the\toks1}}\d@r@ncmd %
- \noindent Input
+\begin{columns}
+\begin{column}{0.49\textwidth}
  \lstinputlisting[language={Python},label=listing:\d@tn@me,basicstyle={\ttfamily\footnotesize}]{\d@tn@me.py}%
- \noindent Output
+ \end{column}%
+ \begin{column}{0.49\textwidth}%
  \lstinputlisting[basicstyle={\ttfamily\footnotesize}]{\d@tn@me.plog}%
+\end{column}
+\end{columns}
 }
 \makeatother
 
 
 \begin{document}
 
-
+\begin{frame}[fragile]
 
 \begin{pycode}{abc}
 import pandas as pd
 print(pd.__version__);
 print(1+1)
 \end{pycode}
+
+\end{frame}
 
 
 \end{document}
