@@ -7,5 +7,9 @@ Created on Sun Feb 26 20:34:01 2017
 def add(a,b):
 	return a+b
 	
-def multiply3(a,b,c=1):
+def multiply(a=2,b=3,c=4):
 	return a*b*c
+
+print(multiply())
+print(multiply(2, 4, 6))
+print(multiply(a=5))

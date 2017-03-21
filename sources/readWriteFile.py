@@ -2,13 +2,19 @@
 """
 Created on Sun Feb 26 17:54:46 2017
 
-@author: Uwe
+@author: Uwe Ziegenhagen
 """
 dateiname = 'exampleFile.txt'
 
-filepointer = open(dateiname,'r') 
+filepointerW = open(dateiname,'w') 
 # 'r' (read) oder 'a' (append)
-for zeile in filepointer:
+for i in 'Hello World':
+        filepointerW.write(i + '\n')
+filepointerW.close()
+
+filepointerR = open(dateiname,'r') 
+# 'r' (read) oder 'a' (append)
+for zeile in filepointerR:
         print(zeile)
 
-filepointer.close()
+filepointerR.close()
