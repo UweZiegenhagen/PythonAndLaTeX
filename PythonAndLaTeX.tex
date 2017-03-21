@@ -82,7 +82,7 @@
     {~}{{\textasciitilde}}1
 }
 
-\newcommand{\pyc}[1]{\lstinline[language={Python}]{#1}}
+\newcommand{\pp}[1]{\lstinline[language={Python}]{#1}}
 
 
 \author{Dr. Uwe Ziegenhagen}
@@ -409,6 +409,31 @@ A: Literate programming\footnote{WEB, CWEB, NOWEB, SWEAVE, knitR}
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{Python\TeX}
+\framesubtitle{Arbeitsweise}
+
+\begin{itemize}
+	\item Kompiliere Dokument mit \texttt{*latex}
+	\item Lass \texttt{pythontex.exe} laufen
+	\item Kompiliere Dokument wieder mit \texttt{*latex}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Arara-Regel}
+
+\begin{itemize}
+	\item Was ist Arara?
+	\item \url{texwelt.de/wissen/fragen/8764/was-ist-arara}
+\end{itemize}
+
+\lstinputlisting[caption={UTF8, sources/pythontex.yaml},basicstyle=\ttfamily\scriptsize]{sources/pythontex.yaml} 
+\end{frame}
+
+
 \begin{frame}[fragile]
 \frametitle{Python\TeX}
 
@@ -434,26 +459,8 @@ Umgebungen
 
 \end{frame}
 
-\begin{frame}
-\frametitle{Python\TeX}
-\framesubtitle{Arbeitsweise}
 
 
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Arara-Regel}
-
-\begin{itemize}
-	\item Was ist Arara?
-	\item \url{texwelt.de/wissen/fragen/8764/was-ist-arara}
-\end{itemize}
-
-\lstinputlisting[caption={UTF8, sources/pythontex.yaml},basicstyle=\ttfamily\scriptsize]{sources/pythontex.yaml} 
-
-
-\end{frame}
 
 \begin{frame}
 \frametitle{Daten verarbeiten}
@@ -492,64 +499,59 @@ Umgebungen
 \begin{center}
 \begin{tabular}{ll} \toprule
 Command & Description \\ \midrule
-read\textunderscore pickle &read Pickle objects \\
-read\textunderscore table & for general table-like formats  \\
+read\textunderscore pickle &lies Pickle objects \\
+read\textunderscore table & für Tabellenformate \\
 read\textunderscore csv & Comma-Separated Values  \\
-read\textunderscore fwf & for weird fixed-width formats  \\
-read\textunderscore clipboard & read from clipboard  \\
-read\textunderscore excel & read Excel files \\ \bottomrule
+read\textunderscore fwf & für fixed-width Formate\\
+read\textunderscore clipboard & lies aus der Zwischenablage \\
+read\textunderscore excel & lies Excel-Dateien\\ \bottomrule
 \end{tabular}\vspace*{-0.35em}
 \end{center}
 
-other commands for HTML, JSON, HDF5, \ldots
+andere Befehle für HTML, JSON, HDF5, \ldots
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Reading CSV}
+\frametitle{CSV-Formate lesen}
 \framesubtitle{~}
 
 \begin{itemize}
-\item CSV can be pretty \enquote{messed up}:
+\item CSV $\not=$ CSV
 \begin{itemize}
-	\item column separator
-	\item decimal separator
-	\item text encoding
+	\item Spaltentrenner
+	\item Dezimaltrenner
+	\item Encoding
 \end{itemize}
-\item see the specification: \url{http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html}
+\item \url{http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html}
 \begin{description}
-\item[sep] specify the column separator
-\item[thousands] Thousands separator
-\item[encoding] hopefully UTF-8 (BOM!)
-\item [decimal] decimal separator
-\item [converters] converters=\{'A': str\} for explicit conversion
+\item[sep] Spaltentrenner
+\item[thousands] Tausender-Trenner
+\item[encoding] hoffentlich UTF8
+\item [decimal]  Dezimaltrenner
+\item [converters] converters=\{'A': str\} für Konvertierung
 \end{description}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Reading Excel}
+\frametitle{Excel lesen}
 
 \begin{itemize}
-\item Use \pyc{pd.read_excel()} to read XLSX files (which are just zipped XMLs)
-\item see the documentation: \url{http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_excel.html}
-\item to export to Excel use \pyc{pd.to_excel()} function
-\item remarks:
+\item \pp{pd.read_excel()} für XLSX-Dateien
+\item Dokumentation: \url{http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_excel.html}
+\item Export nach Excel: \pp{pd.to_excel()} function
+\item Hinweise:
 \begin{itemize}
-	\item Excel export is much slower than CSV
-	\item Exporting \enquote{styled} Excel requires additional effort
-	\item Excel can be well controlled via COM (Common Object Model) 
+	\item Excel-export langsamer als CSV-Export
+	\item \enquote{Schickes} Excel ist aufwändiger
+	\item Excel/Office kann auch gut per COM gesteuert werden
 \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Querying DataFrames}
-\framesubtitle{Getting basic information}
-
-\begin{itemize}
-	\item For the next slides load \texttt{Northwind} data
-	\item First task after loading data: do some sanity checks
-\end{itemize}
+\frametitle{DataFrames abfragen}
+\framesubtitle{Grundlegende Daten}
 
 \begin{lstlisting}[language={Python}]
 customers = pd.read_excel('Northwind.xlsx',
@@ -562,112 +564,82 @@ print(list(customers))    # die Spaltennamen
 \end{lstlisting}
 \end{frame}
 
-%\begin{frame}[fragile]
-%\frametitle{Selecting Data}
-%\framesubtitle{Selection of rows and columns}
-%
-%\begin{lstlisting}[language={Python}]
-%
-%\end{lstlisting}
-%\end{frame}
-
 \begin{frame}[fragile]
-\frametitle{Pandas Dataframe Operations}
-\framesubtitle{Selection and Filtering I}
+\frametitle{Pandas Dataframe Operationen}
+\framesubtitle{Auswahl und Filterung I}
 
 \begin{itemize}
-	\item pandas provides sophisticated methods to select, filter and transform rows and columns
+	\item pandas hat clevere  Funktionen zur Datenauswahl
 \end{itemize}
 
 \begin{itemize}
-\item Select only certain columns
+\item Wähle bestimmte Spalten aus
 
-\pyc{df = df[['colA', 'colB']]}
+\pp{df = df[['colA', 'colB']]}
 
-\item Select only first two rows (hint: index starts at 0)
+\item Wähle nur die ersten zwei Zeilen (Index beginnt mit 0)
 
-\pyc{df.iloc[:1]}
+\pp{df.iloc[:1]}
 
-\item Select only rows where column value is greater
+\item Wähle die Zeilen, in denen \texttt{ColA} > 50
 
-\pyc{df[df['colA'] > 50]}
+\pp{df[df['colA'] > 50]}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Pandas Dataframe Operations}
-\framesubtitle{Selection and Filtering II}
+\frametitle{Pandas Dataframe Operationen}
+\framesubtitle{Auswahl und Filterung II}
 
 \begin{itemize}
-\item Select only rows where column value is greater  \newline than 50 and smaller than 500
+\item Wähle die Zeilen, in denen \texttt{colA} größer 50 und kleiner 500
 
-\pyc{df[(df['colA'] > 50) | (df['colA'] < 500)]}
+\pp{df[(df['colA'] > 50) | (df['colA'] < 500)]}
 
-\item Select only rows where column value is not
+\item Wähle die Zeilen, in denen \texttt{colA} nicht \enquote{HelloWorld} ist
 
-\pyc{df[~(df['colA'] == 'HelloWorld')]}
+\pp{df[~(df['colA'] == 'HelloWorld')]}
 
-\item Select those rows, where column b is 'A' or 'B'
+\item Wähle die Zeilen, in denen 'b' 'A' oder 'B' ist
 
-\pyc{df = df[ (df['b'] == 'A') | (df['b'] == 'I')]}
+\pp{df = df[ (df['b'] == 'A') | (df['b'] == 'I')]}
 
-\item more readable alternative via \pyc{isin()}
+\item Alternative dazu via \pp{isin()}
 
-\pyc{df = df[df['b'].isin(['A','I'])]}
+\pp{df = df[df['b'].isin(['A','I'])]}
 
-\item or the opposite
+\item oder das Gegenstück dazu
 
-\pyc{df = df[~df['b'].isin(['A','I'])]}
-
-%\item See more here: \url{http://chrisalbon.com/python/pandas_indexing_selecting.html}
+\pp{df = df[~df['b'].isin(['A','I'])]}
 
 \end{itemize}
 \end{frame}
 
 
-%\begin{frame}[fragile]
-%\frametitle{Pandas Dataframe Operations}
-%\framesubtitle{Combining DataFrames with \texttt{append()} and \texttt{concat()}}
-%
-%\begin{itemize}
-%	\item 
-%	\item 
-%	\item
-% 	\item 
-%	\item 
-%	\item 
-%\end{itemize}
-%
-%
-%\end{frame}
-
-
-
 \begin{frame}[fragile]
-\frametitle{Pandas Dataframe Operations}
-\framesubtitle{Merging and Joining}
+\frametitle{Pandas Dataframe Operationen}
+\framesubtitle{Merge}
 
 \begin{itemize}
-\item \texttt{merge()} provides SQL-like merging
-\item very handy to combine different datasets
-\item Supported are the followin join-types:
+\item \texttt{merge()} join wie in SQL
+\item nützlich, um Datensätze zu verbinden
+\item Unterstützt werden
 \begin{itemize}
 	\item Left
 	\item Right
 	\item Inner
 	\item Full Outer
 \end{itemize}
-\item \texttt{join()} is special alias for \texttt{merge()},  works on  \\ index, not columns  (the default for merge)
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Pandas Dataframe Operations}
-\framesubtitle{Merging and Joining}
+\frametitle{Pandas Dataframe Operationen}
+\framesubtitle{Merging}
 
 \begin{itemize}
-	\item Default-command for \texttt{merge()}
+	\item Optionen für \texttt{merge()}
 \end{itemize}
 
 \begin{lstlisting}
@@ -678,18 +650,10 @@ copy=True, indicator=False)
 \end{lstlisting}
 
 \begin{enumerate}
-\item define the other DataFrame to merge
-\item define how to merge
-\item define the keys to use for the merge
+\item Definiere den anderen Datensatz
+\item Definiere, wie verbunden werden soll
+\item Definiere die Schlüsselspalten
 \end{enumerate}
-
-
-%\begin{figure}
-%\begin{center} % left bottom right top
-%\fbox{\includegraphics[width=0.8\textwidth]{Bilder/merge}}
-%\end{center}
-%\caption{merge, source: \texttt{pandas} documentation}
-%\end{figure}
 
 \end{frame}
 
@@ -699,7 +663,7 @@ copy=True, indicator=False)
 \framesubtitle{Inner Join}
 
 \begin{itemize}
-\item Select all data which is in A and B
+\item Alle Daten, die in A und B sind
 \end{itemize}
 
 \begin{center}
@@ -755,7 +719,7 @@ merged \\
 \framesubtitle{Left Join}
 
 \begin{itemize}
-\item Select all data which is in A and B
+\item Alle Daten, die in A sind, mit passenden Daten aus B
 \end{itemize}
 
 \begin{center}
@@ -812,7 +776,7 @@ merged \\
 \framesubtitle{Right Join}
 
 \begin{itemize}
-\item Select all data which is in B
+\item Alle Daten, die in B sind, mit passenden Daten aus A
 \end{itemize}
 
 \begin{center}
@@ -871,7 +835,7 @@ merged \\
 \framesubtitle{Full Outer Join}
 
 \begin{itemize}
-\item Select all data which is in A or B
+\item Alle Daten, die in A oder B sind
 \end{itemize}
 
 \begin{center}
@@ -924,63 +888,58 @@ merged \\
 
 \end{frame}
 
-\begin{frame}
-\frametitle{Merging}
-\framesubtitle{Join Examples}
+\section{Jinja2}
 
-\begin{infobox}[ backgroundcolor=blue!10,frametitle={Exercise}]
-\begin{enumerate}
-\item Get \texttt{Northwind.xlsx}
-\item Load the sheets and into dataframes
-\item Merge both frames using different join types
-\end{enumerate}
+
+\begin{frame}
+\frametitle{jinja2}
+\framesubtitle{Was ist eine \enquote{Template Engine}?}
+
+\begin{infobox}
+Jinja2 is a modern and designer-friendly templating language for Python, modelled after Django’s templates. It is fast, widely used and secure with the optional sandboxed template execution environment.
 \end{infobox}
 
+\begin{itemize}
+	\item Vorlagen (aus Dateien, Datenbank, etc.)
+	\item Liste von Variablen
+	\item jinja2 ersetzt die Variablen durch Inhalte
+\end{itemize}
 
 \end{frame}
-
-
-\section{Various \texttt{pandas} Examples}
 
 \begin{frame}[fragile]
-\frametitle{Example: Merging Rows into Columns}
+\frametitle{jinja2}
+\framesubtitle{Ein einfaches Beispiel (ohne \LaTeX)}
 
-{\footnotesize
-\begin{tabular}{ll} \toprule
-Spalte &  	Wert \\ \midrule
-ColA 	& Andi \\
-ColB 	& Berni \\
-ColC 	& Cesar \\
-ColA 	& Dorian \\
-ColB 	& Ernst \\
-ColC 	& Frank \\ \bottomrule
-\end{tabular}} \vspace*{1em}
+\lstinputlisting[,caption={Inhalt der Datei \enquote{test-min.txt}}]{sources/test-min.txt} 
 
-\begin{lstlisting}[morekeywords={loc,iterrows,read_excel}]
-import pandas as pd
-daten = pd.read_excel('combine.xlsx')
-result = pd.DataFrame(columns=['ColA', 'ColB', 'ColC'])
-for i, row in daten.iterrows():
-    result.loc[i // 3, row['Spalte']] = row['Wert']
+\lstinputlisting[firstline=8,caption={UTF8, sources/jinja2-01.py}]{sources/jinja2-01.py} 
 
-print(result)
-\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{jinja2}
+\framesubtitle{Eingebaute Schleifen}
+
+\lstinputlisting[firstline=8,caption={UTF8, sources/jinja2-02.py}]{sources/jinja2-02.py} 
+
 \end{frame}
 
 
 
-\section{Examples}
+
+\section{Beispiel}
 
 \begin{frame}
-\frametitle{Example: Creating Tax Donation Receipts}
+\frametitle{Beispiel: Erstellung von Spendenbescheinigungen}
 \framesubtitle{~}
 
 \begin{itemize}
-\item Donations to Dingfabrik are tax-deductible
-\item Manual creation error-prone and labor-intensive
-\item Last year: complicated mix (Python,  MySQL, \LaTeX)
-\item This year: pandas, much easier
-\item Interested? \url{http://uweziegenhagen.de/?p=3359}
+\item Schatzmeister des Kölner Dingfabrik e.V.
+\item Manuelle Erstellung der Spendenbescheinigungen keine Option
+\item Bis 2014: Python, MySQL, etc. (Siehe meine Vortrag 2014 in Heidelberg)
+\item Seither \texttt{pandas}, deutlich einfacher
+\item Mehr dazu unter \url{http://uweziegenhagen.de/?p=3359}
 \end{itemize}
 \end{frame}
 
