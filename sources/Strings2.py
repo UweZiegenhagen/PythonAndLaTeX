@@ -6,7 +6,9 @@ Created on Sun Feb 26 20:27:15 2017
 """
 meinString = 'Hallo Welt'
 
-meinString.upper()
-meinString.find('Welt')
-meinString.split(' ')
-meinString.replace('Welt', 'World')
+print(meinString.upper())
+print(meinString.lower())
+print(meinString.find('W'))
+print(meinString.split(' '))
+print(meinString.strip())
+print(meinString.replace('Welt', 'World'))

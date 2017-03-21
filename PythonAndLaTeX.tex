@@ -38,7 +38,7 @@
 
 %%% end venn
 
-\newcommand{\Aufgabe}{%
+\newcommand{\Aufgabe}{Aufgabe~%
 \stepcounter{Aufgabe}%
 \theAufgabe%
 }
@@ -56,7 +56,7 @@
 	language= {Python},%
     columns=flexible, %
     tabsize=2, %
-    morekeywords={read_csv,system,start,close,read,isoformat,now,to_datetime,merge,to_excel,join,concat,pairplot,vq,kmeans,savefig,Series,axis,DataFrame,index,to_frame,loc,iloc,idx,mean,describe,std,count,},%
+    morekeywords={read_csv,system,startfile,close,read,isoformat,now,to_datetime,merge,to_excel,join,concat,pairplot,vq,kmeans,savefig,Series,axis,DataFrame,index,to_frame,loc,iloc,idx,mean,describe,std,count,},%
     frame=single, %
     extendedchars=true, %
     showspaces=false, %
@@ -94,8 +94,11 @@
 
 \begin{frame}
 
-{\large Diejenigen, die aktiv mitmachen wollen, setzen sich bitte nach vorn.}
-
+\begin{itemize}
+	\item Wer aktiv mitmachen möchte, setzt sich bitte nach vorn.
+	\item Einen USB-Stick mit Anaconda hab ich dabei
+	\item \ldots
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -122,8 +125,8 @@
 \framesubtitle{Was wird benötigt}
 
 \begin{itemize}
-\item Aktuelle \TeX\ Installation
-\item Python3 Installation, vorzugsweise Anaconda/Winpython
+\item Aktuelle \TeX\ Installation (\TeX~Live 2016)
+\item Python3 Installation, vorzugsweise Anaconda
 \item Pakete:
 \begin{itemize}
 	\item numpy
@@ -161,14 +164,14 @@
 \frametitle{Das SciPy Framework}
 \framesubtitle{~}
 
-Neben \texttt{pandas} ist enthalten:
+SciPy-Distributionen enthalten:
 
 \begin{description}
-\item[NumPy] matrices, vectors, algorithms
-\item[IPython] Matlab/Mathematica-like environment 
-\item[Matplotlib] scientific plotting, basis for \texttt{seaborn} library
-\item[SymPy] symbolic mathematics
-\item [\ldots] etc, etc.
+\item[NumPy] Matrizen, Vektoren, Algorithmen
+\item[IPython] Matlab/Mathematica-ähnliche Umgebung
+\item[Matplotlib] Wiss. Grafik, Basis für die \texttt{seaborn} Bibliothek
+\item[SymPy] Symbolische Mathematik
+\item [\ldots] etc,\,etc.
 \end{description}
 \end{frame}
 
@@ -185,7 +188,70 @@ import jinja2
 import pandas
 import numpy
 \end{lstlisting}
+
+Wenn ja, dann gut, wenn nein, dann 
+
+\begin{itemize}
+	\item entweder Anaconda installieren :-)
+	\item oder mittels \texttt{pip} nachinstallieren :-(
+\end{itemize}
+
 \end{frame}
+
+\begin{frame}
+\frametitle{Anaconda Installation 1}
+
+\begin{center}
+\fbox{\includegraphics[width=0.8\textwidth]{Bilder/Anaconda-01}}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Anaconda Installation 2}
+
+\begin{center}
+\fbox{\includegraphics[width=0.8\textwidth]{Bilder/Anaconda-02}}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Anaconda Installation 3}
+
+\begin{center}
+\fbox{\includegraphics[width=0.8\textwidth]{Bilder/Anaconda-03}}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Anaconda Installation 4}
+
+\texttt{sudo conda update ----all}
+
+\begin{center}
+\fbox{\includegraphics[width=0.8\textwidth]{Bilder/Anaconda-04}}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Anaconda Installation 5}
+
+Läuft\ldots
+
+\begin{center}
+\fbox{\includegraphics[width=0.8\textwidth]{Bilder/Anaconda-05}}
+\end{center}
+
+\end{frame}
+
+
+
+
 
 \section{Python Grundlagen}
 
@@ -196,16 +262,21 @@ import numpy
 \begin{itemize}
 	\item Erfunden von Guido van Rossum (Niederlande)
 	\item Fokus auf lesbaren und verständlichen Code
-	\item \enquote{batteries included} $\Rightarrow$ umfangreiche Standardbibliothek
-	\item Mein erster Kontakt mit Python: Downloadskript für den SaveTV Online-VCR
+	\item umfangreiche Standard-Bibliothek $\Rightarrow$  \enquote{batteries included} 
+	\item Mein erster Kontakt mit Python: Downloadskript für den Save.TV Online-VCR
 	\item Python2 versus Python3 $\Rightarrow$ Python3
-	\item Editor? Ich nutze Spyder3, auch empfehlenswert: Geany
+	\item Editor/IDE? Ich nutze Spyder3, auch empfehlenswert: Geany
 	\item Python selbst liefert IDLE mit
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Python \enquote{Hello World}}
+\frametitle{\Aufgabe}
+\framesubtitle{Python \enquote{Hello World}}
+
+\begin{itemize}
+	\item Editor der Wahl starten, folgende Befehle ausprobieren
+\end{itemize}
 
 \lstinputlisting[firstline=7,caption={Hello World in Python 3.x, sources/helloWorld.py}]{sources/helloWorld.py}
 
@@ -256,7 +327,6 @@ import numpy
 \lstinputlisting[firstline=7,caption={Tupel, sources/Tupel.py}]{sources/Tupel.py}
 \end{frame}
 
-
 \begin{frame}[fragile]
 \frametitle{Dictionaries}
 \framesubtitle{Key-Value Paare}
@@ -264,7 +334,6 @@ import numpy
 \begin{itemize}
 	\item nicht veränderbar
 \end{itemize}
-
 
 \lstinputlisting[firstline=7,caption={Tupel, sources/Dictionaries.py}]{sources/Dictionaries.py}
 \end{frame}
@@ -335,24 +404,54 @@ import numpy
 \frametitle{Andere wichtige Befehle}
 \framesubtitle{Das \texttt{os} Modul}
 
+\texttt{os} enthält verschiedenste Funktionen für den Umgang mit Dateien und Prozessen, für uns spannend:
+
 \begin{itemize}
 \item \lstinline{os.system(<Befehl>)} Führt externen Befehl aus
-\item \lstinline{os.start(<Datei>)} Öffnet Datei mit der Standard-Applikation (nur unter Windows)
+\item \lstinline{os.startfile(<Datei>)} Öffnet Datei mit der Standard-Applikation (nur unter Windows)
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Aufgabe \theAufgabe}
-\framesubtitle{~}
+\framesubtitle{Wir (lassen) rechnen\ldots}
 
 \begin{itemize}
 \item Wir erzeugen Rechenaufgaben für Kinder
 \item links die Aufgabe, rechts die Lösung
 \item Aufgaben randomisiert (\texttt{random} Modul)
 \item Datei automatisch übersetzen und ausführen
-\item Tipp für Font: TeX Gyre Schola, \verb|\usepackage{tgschola}|
+\item Tipp für die Schriftart: TeX Gyre Schola, \verb|\usepackage{tgschola}|
 \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Lösung}
+\framesubtitle{Teil 1}
+
+\lstinputlisting[firstline=7,lastline=12,caption={Rechnen Teil 1, sources/Aufgaben.py}]{sources/Aufgaben.py} 
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Lösung}
+\framesubtitle{Teil 2}
+
+\lstinputlisting[firstline=14,lastline=24,caption={Rechnen Teil 2, sources/Aufgaben.py}]{sources/Aufgaben.py} 
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Lösung}
+\framesubtitle{Teil 3}
+
+\lstinputlisting[firstline=26,lastline=38,caption={Rechnen Teil 3, sources/Aufgaben.py}]{sources/Aufgaben.py} 
+
+\end{frame}
+
+
+
+
 
 \section{Python in \LaTeX-Dokumenten}
 
@@ -369,6 +468,16 @@ A: Literate programming\footnote{WEB, CWEB, NOWEB, SWEAVE, knitR}
 \item Python\TeX\ von Ge­of­frey M. Poore \url{https://www.ctan.org/pkg/pythontex}
 \end{itemize}
 \end{frame}
+
+\begin{frame}
+\frametitle{Python im \LaTeX-Lauf}
+
+\begin{center}
+\fbox{\includegraphics[width=0.8\textwidth]{Bilder/shellescape}}
+\end{center}
+
+\end{frame}
+
 
 \begin{frame}[fragile]
 \frametitle{Python im \LaTeX-Lauf}
@@ -388,39 +497,48 @@ A: Literate programming\footnote{WEB, CWEB, NOWEB, SWEAVE, knitR}
 }
 \makeatother
 \end{lstlisting}
-
-\begin{itemize}
-	\item Beispiele unter \texttt{/sources}, leicht anpassbar
-\end{itemize}
-
 \end{frame}
+
+\begin{frame}
+\frametitle{Python im \LaTeX-Lauf}
+\framesubtitle{~}
+
+Beispiele unter \texttt{/sources}, leicht anpassbar
+
+\begin{description}
+\item [pycode-mini.tex] einspaltig s/w
+\item [pycode.tex] einspaltig, farbig hinterlegt
+\item [pycode-beamer.tex] für Folien, zweispaltig
+\end{description}
+\end{frame}
+
+
 
 \begin{frame}
 \frametitle{Python\TeX}
 
 \begin{itemize}
 \item \enquote{PythonTeX} Paket von Ge­of­frey M. Poore
-\item Paket in Version 0.15 auf CTAN, in \TeX~Live enthalten
+\item Paket in Version 0.15 auf CTAN, auch in \newline \TeX~Live 2016 enthalten
 \item unter Windows \texttt{pythontex.exe}
 \item stellt mehrere Befehle und Umgebungen bereit
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Python\TeX}
-\framesubtitle{Arbeitsweise}
-
+\item Syntax-Highlighting via \texttt{pygments}
+\item komplexer als die \enquote{Eigenbau-Lösung} 
+\item Workflow
 \begin{itemize}
 	\item Kompiliere Dokument mit \texttt{*latex}
-	\item Lass \texttt{pythontex.exe} laufen
+	\item Lass \texttt{pythontex.exe}/\texttt{pythontex.py} laufen
 	\item Kompiliere Dokument wieder mit \texttt{*latex}
 \end{itemize}
 
+\end{itemize}
 \end{frame}
 
 
 \begin{frame}[fragile]
 \frametitle{Arara-Regel}
+
+Hilfreich dabei: eigene Arara-Regel
 
 \begin{itemize}
 	\item Was ist Arara?
@@ -456,7 +574,22 @@ Umgebungen
 
 \end{frame}
 
+\begin{frame}
+\frametitle{Python\TeX}
+\framesubtitle{Beispiele aus der Python\TeX-Galerie}
 
+Alle Beispiele unter \texttt{/sources}
+
+\begin{description}
+\item[pythontex-01.tex] \enquote{Hallo Welt}
+\item[pythontex-02.tex] Formatstring
+\item[pythontex-03.tex] Substitution
+\item[pythontex-04.tex] Unicode und Pyconsole
+\item[pythontex-05.tex] Pyconsole Evaluation
+\item[pythontex-06.tex] SymPy
+\end{description}
+
+\end{frame}
 
 
 \begin{frame}
@@ -938,21 +1071,10 @@ Jinja2 is a modern and designer-friendly templating language for Python, modelle
 \item Seither \texttt{pandas}, deutlich einfacher
 \item Mehr dazu unter \url{http://uweziegenhagen.de/?p=3359}
 \end{itemize}
+
+Schauen wir uns das Beispiel unter \texttt{sources/Spendenquittungen} an
+
 \end{frame}
 
 \end{document}
 
-
-\begin{frame}
-\frametitle{Aufgabe \Aufgabe}
-\framesubtitle{~}
-
-\begin{itemize}
-\item 
-\item 
-\item 
-\item 
-\item 
-\item 
-\end{itemize}
-\end{frame}

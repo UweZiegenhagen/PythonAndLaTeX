@@ -12,7 +12,7 @@ max = 100 # maximum number
 count = 12 # 12 fit on one page
  
 with open('Aufgaben.tex', 'w') as texfile:
-	texfile.write("\\documentclass[15pt,ngerman]{scrartcl}\n")
+	texfile.write("\\documentclass[15pt]{scrartcl}\n")
 	texfile.write("\\usepackage[utf8]{inputenc}\n")
 	texfile.write("\\usepackage{tgschola,longtable}\n")
 	texfile.write("\\usepackage[T1]{fontenc}\n")
@@ -21,7 +21,7 @@ with open('Aufgaben.tex', 'w') as texfile:
 	texfile.write("\\renewcommand*{\\arraystretch}{1.5}\n")
 	texfile.write("\\begin{document}\n")
 	texfile.write("\\huge\n")
-	texfile.write("\\begin{longtable}{cccp{8cm}c}")
+	texfile.write("\\begin{longtable}{cccp{8cm}r}\n")
  
 	for i in range(count):
 		a = random.randint(min, max)
@@ -29,10 +29,10 @@ with open('Aufgaben.tex', 'w') as texfile:
  
 		result = a + b;
  
-		texfile.write('%s &+ &%s &= &%s \\\\ \\hline\n'%(str(a),str(b),str(result)))
+		texfile.write('%s &+& %s &=& %s \\\\ \\hline\n' % (str(a), str(b), str(result)))
  
 	texfile.write("\\end{longtable}\n")
 	texfile.write("\\end{document}\n")
  
 os.system("pdflatex Aufgaben.tex")
-os.startfile("Aufgaben.pdf") # this line may not work under Linux
+os.startfile("Aufgaben.pdf") # Windows-only

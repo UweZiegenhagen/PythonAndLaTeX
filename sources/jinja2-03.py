@@ -34,3 +34,4 @@ with codecs.open ('helloworld.tex', 'w', 'utf-8') as file:
     file.write(dokument);
     file.close();
     os.system('pdflatex helloworld.tex')
+    os.startfile('helloworld.pdf')
