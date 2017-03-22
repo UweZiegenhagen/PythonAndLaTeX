@@ -73,13 +73,9 @@ for index, row in stammdaten.iterrows():
     summe = str(gesamtsumme).replace('.',',0') + ' EUR'
         
     texbuchungen = beitraege.applymap(lambda x: str(x).replace('.',',0')).to_latex(index=False)    
-    texbuchungen = beitraege.to_latex(index=False)    
         
     dokument = template.render(Spender=address, ID=row['ID'],Summe=summe,kardinal=kardinal(summe,'-','xxx'),Buchungen=texbuchungen)
     with codecs.open('./fertig/'+str(row['ID']) + ".tex", "w","utf-8") as letter:
         letter.write(dokument);
         letter.close();
         os.system("pdflatex -output-directory=./fertig/ -interaction=batchmode ./fertig/" + str(row['ID']) + ".tex")
-    
-        os.system("del ./fertig/*.log")
-        os.system("del ./fertig/*.aux")

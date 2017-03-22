@@ -17,10 +17,10 @@
 \begin{document}
 
 \begin{pycode}
+from scipy.stats import norm
+
 print('\\begin{tabular}{r|cccccccccc} \\toprule')
 
-from scipy.stats import norm
- 
 horizontal = range(0,10,1)
 vertikal = range(0,37)
  
@@ -35,8 +35,7 @@ for j in vertikal:
     print('\\\\', x)
     for i in horizontal:
         y = x + i/100
-        print('& ', "{:10.4f}".format(norm.cdf(y),4))
- 
+        print('& ', "{:10.4f}".format(norm.cdf(y)))
  
 print('\\\\ \\bottomrule \r\n')
 print('\\end{tabular}')

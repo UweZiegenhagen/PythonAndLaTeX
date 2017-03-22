@@ -97,7 +97,8 @@
 \begin{itemize}
 	\item Wer aktiv mitmachen möchte, setzt sich bitte nach vorn.
 	\item Einen USB-Stick mit Anaconda hab ich dabei
-	\item \ldots
+	\item Alle Folien \& Beispiele auch auf dem Stick
+	\item oder unter \url{https://github.com/UweZiegenhagen/PythonAndLaTeX}
 	\end{itemize}
 \end{frame}
 
@@ -449,10 +450,6 @@ Läuft\ldots
 
 \end{frame}
 
-
-
-
-
 \section{Python in \LaTeX-Dokumenten}
 
 \begin{frame}
@@ -543,11 +540,11 @@ Hilfreich dabei: eigene Arara-Regel
 \begin{itemize}
 	\item Was ist Arara?
 	\item \url{texwelt.de/wissen/fragen/8764/was-ist-arara}
+	\item ablegen unter \texttt{C:/texlive/2016/texmf-dist/ scripts/arara/rules} oder im lokalen texmf-Tree
 \end{itemize}
 
-\lstinputlisting[caption={UTF8, sources/pythontex.yaml},basicstyle=\ttfamily\scriptsize]{sources/pythontex.yaml} 
+\lstinputlisting[caption={UTF8, sources/pythontex.yaml},basicstyle=\ttfamily\scriptsize]{sources/pythontex.yaml}
 \end{frame}
-
 
 \begin{frame}[fragile]
 \frametitle{Python\TeX}
@@ -588,6 +585,14 @@ Alle Beispiele unter \texttt{/sources}
 \item[pythontex-05.tex] Pyconsole Evaluation
 \item[pythontex-06.tex] SymPy
 \end{description}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Eigenes Beispiel}
+\framesubtitle{Erzeugung einer Verteilungstabelle}
+
+\lstinputlisting[basicstyle=\scriptsize,firstline=20,lastline=38,caption={Normalverteilung, sources/pythontex-07.tex}]{sources/pythontex-07.tex} 
 
 \end{frame}
 
@@ -1033,6 +1038,7 @@ Jinja2 is a modern and designer-friendly templating language for Python, modelle
 	\item Vorlagen (aus Dateien, Datenbank, etc.)
 	\item Liste von Variablen
 	\item jinja2 ersetzt die Variablen durch Inhalte
+	\item Erlaubt Trennung von Programmcode und Vorlage
 \end{itemize}
 
 \end{frame}
@@ -1067,7 +1073,7 @@ Jinja2 is a modern and designer-friendly templating language for Python, modelle
 \begin{itemize}
 \item Schatzmeister des Kölner Dingfabrik e.V.
 \item Manuelle Erstellung der Spendenbescheinigungen keine Option
-\item Bis 2014: Python, MySQL, etc. (Siehe meine Vortrag 2014 in Heidelberg)
+\item Bis 2014: Python, MySQL, etc. (Siehe meinen Vortrag 2014 in Heidelberg)
 \item Seither \texttt{pandas}, deutlich einfacher
 \item Mehr dazu unter \url{http://uweziegenhagen.de/?p=3359}
 \end{itemize}
