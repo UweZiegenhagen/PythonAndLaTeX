@@ -1,0 +1,47 @@
+%!TEX TS-program = Arara
+% arara: pdflatex
+% arara: pythontex
+% arara: pdflatex
+\documentclass[12pt]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{fullpage}
+\usepackage{graphicx,booktabs}
+\usepackage[svgnames]{xcolor}
+\usepackage{url,mdframed}
+\urlstyle{same}
+
+\usepackage{pythontex}
+
+\begin{document}
+
+\begin{pycode}
+print('\\begin{tabular}{r|cccccccccc} \\toprule')
+
+from scipy.stats import norm
+ 
+horizontal = range(0,10,1)
+vertikal = range(0,37)
+ 
+header = ''
+for i in horizontal:
+    header = header + ' & ' + str(i/100)
+ 
+print(header, '\\\\ \\midrule')
+ 
+for j in vertikal:  
+    x = j/10
+    print('\\\\', x)
+    for i in horizontal:
+        y = x + i/100
+        print('& ', "{:10.4f}".format(norm.cdf(y),4))
+ 
+ 
+print('\\\\ \\bottomrule \r\n')
+print('\\end{tabular}')
+\end{pycode}
+
+	
+
+\end{document}
