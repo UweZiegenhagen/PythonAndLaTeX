@@ -9,7 +9,7 @@ import os
  
 min = 1 # number to start with
 max = 100 # maximum number
-count = 12 # 12 fit on one page
+count = 120000 # 12 fit on one page
  
 with open('Aufgaben.tex', 'w') as texfile:
 	texfile.write("\\documentclass[15pt]{scrartcl}\n")
