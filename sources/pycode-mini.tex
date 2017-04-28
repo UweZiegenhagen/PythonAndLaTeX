@@ -1,41 +1,13 @@
 \documentclass[12pt]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{listings}
- 
-\lstset{%
-    float=hbp,basicstyle=\ttfamily\footnotesize, %
-    columns=flexible,tabsize=2,frame=single, %
-    extendedchars=true,showspaces=false, %
-    showstringspaces=false,language=Python,%
-    numbers=left,numberstyle=\tiny, %
-    breaklines=true,breakautoindent=true,captionpos=b%
-}
 
-\usepackage{fancyvrb}
-
-\makeatletter
-\newenvironment{pycode}[1]%
-  {\xdef\d@tn@me{#1}\xdef\r@ncmd{python #1.py > #1.plog}%
-  \typeout{Writing file #1}\VerbatimOut{#1.py}% 
-  }
-  {\endVerbatimOut %
- \toks0{\immediate\write18}%
- \expandafter\toks\expandafter1\expandafter{\r@ncmd}%
- \edef\d@r@ncmd{\the\toks0{\the\toks1}}\d@r@ncmd %
- \noindent Input
- \lstinputlisting[language={Python},label=listing:\d@tn@me,basicstyle={\ttfamily\footnotesize}]{\d@tn@me.py}%
- \noindent Output
- \lstinputlisting[basicstyle={\ttfamily\footnotesize}]{\d@tn@me.plog}%
-}
-\makeatother
-
+\input{pycodecode}
 
 \begin{document}
 
 \begin{pycode}{abc}
-import pandas as pd
-print(pd.__version__);
+print(1+2+3+4+5+6+7646)
 \end{pycode}
 
 
